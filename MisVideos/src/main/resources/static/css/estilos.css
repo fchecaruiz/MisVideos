@@ -1,0 +1,276 @@
+/* ---- BASE ---- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f7f9fc;
+    color: #333;
+}
+
+/* ---- TITULOS ---- */
+h1, h2 {
+    color: #222;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ---- TABLA ---- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #eafaea;
+}
+
+/* ---- CABECERAS PERSONALIZADAS ---- */
+.trozoid{
+    background-color: rgb(255, 255, 0);
+    padding: 12px;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.trozoTitulo {
+    background-color: rgb(0, 128, 64);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.trozoVideo {
+    background-color: rgb(0, 0, 255);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.trozoAcciones {
+    background-color: rgb(255, 0, 128);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+}
+
+/* ---- IFRAME ---- */
+iframe {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ---- FORMULARIO ---- */
+form {
+    background: #ffffff;
+    padding: 20px;
+    margin: 0 auto 30px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
+    text-align: left;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+form button {
+    background-color: #28a745;
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* ---- BOTON ELIMINAR ---- */
+.eliminar-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.eliminar-btn:hover {
+    background: #c0392b;
+}
+
+.eliminar-btn:active {
+    transform: scale(0.95);
+}
+
+.editar-btn {
+    background: rgb(0, 128, 64);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+    iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    form {
+        width: 90%;
+    }
+}
+
+
+/* ---- NOTIFICACIONES ---- */
+#notificaciones {
+    position: fixed; /* Fijo en la pantalla */
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Para que esté por encima de todo */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre múltiples notificaciones */
+}
+
+.notificacion {
+	background-color: #333;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: rgb(255, 255, 0);
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0; /* Empieza invisible */
+    transform: translateY(-20px); /* Empieza un poco arriba */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    min-width: 250px;
+    text-align: center;
+}
+
+.notificacion.show {
+    opacity: 1; /* Se hace visible */
+    transform: translateY(0); /* Baja a su posición */
+}
+
+.notificacion.exito {
+    background-color: #28a745; /* Verde para éxito */
+}
+
+.notificacion.error {
+    background-color: #dc3545; /* Rojo para error */
+}
+
+.notificacion.info {
+    background-color: #007bff; /* Azul para información */
+}
+
+.btn-actualizar {
+    background-color: #007bff !important;
+}
+
+
+#btnGuardar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    
+}
+
+
+#btnGuardar.btn-actualizar {
+    background-color: #007bff;  
+ 
+}
+
+#btnCancelar {
+    margin-top: 10px;   
+    margin-left: 1px;  
+    background-color: rgb(255, 0, 0); 
+    color: white;
+}
+
+
+/* ---- BUSCADOR ---- */
+.contenedor-buscador {
+    margin-bottom: 20px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+}
+
+.label-buscador {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.input-buscador {
+	color:black;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+    transition: border-color 0.3s;
+}
+
+.input-buscador:focus {
+    border-color: rgb(255, 0, 0);
+    outline:2px solid rgb(255, 0, 0);
+    
+}

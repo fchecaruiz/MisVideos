@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Videos</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <script  defer th:src="@{/js/videos.js}"></script>
+</head>
+<body>
+
+<div id="notificaciones"></div>
+
+<h2>Agregar Nuevo Video</h2>
+
+<form id="formVideo">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" required>
+    <br><br>
+    <label for="urlVideo">URL del Video:</label>
+    <input type="text" id="urlVideo" name="urlVideo" required>
+    <br><br>
+    <button type="submit" id="btnGuardar">Guardar Video</button>
+    <button type="button" id="btnCancelar" style="display: none;">Cancelar Edición</button>
+</form>
+
+<hr>
+
+<div class="contenedor-buscador">
+    <label for="buscador" class="label-buscador">Buscar Video:</label>
+    <input type="text" id="buscador" class="input-buscador" placeholder="Escribe para buscar por título o URL">
+</div>
+
+
+<h1>Mis Videos 🎬</h1>
+
+<table>
+    <tr>
+        <th class="trozoid">ID</th>
+        <th class="trozoTitulo">Título</th>
+        <th class="trozoVideo">Video</th>
+        <th class="trozoAcciones">Acciones</th>
+    </tr>
+    <tr th:each="video : ${listaVideos}">
+        <td th:text="${video.id}"></td>
+        <td th:text="${video.titulo}"></td>
+        <td>
+            <iframe th:src="${
+                            video.urlVideo.contains('watch?v=') ?
+                            #strings.replace(video.urlVideo, 'watch?v=', 'embed/') :
+                            #strings.replace(video.urlVideo, 'https://youtu.be/', 'https://www.youtube.com/embed/')
+                          }"
+                    width="400" height="250"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </td>
+        <td>
+            <button class="editar-btn" 
+                    th:data-id="${video.id}" 
+                    th:data-titulo="${video.titulo}" 
+                    th:data-urlvideo="${video.urlVideo}">
+                ✏️ Editar
+            </button>
+            <button class="eliminar-btn" th:data-id="${video.id}">🗑️ Eliminar</button>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
