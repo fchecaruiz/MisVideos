@@ -9,6 +9,10 @@
 </head>
 <body>
 
+<form th:action="@{/logout}" method="post" style="text-align: right;">
+    <button type="submit">Cerrar sesión</button>
+</form>
+
 <div id="notificaciones"></div>
 
 <h2>Agregar Nuevo Video</h2>
@@ -30,7 +34,7 @@
     <label for="buscador" class="label-buscador">Buscar Video:</label>
     <input type="text" id="buscador" class="input-buscador" placeholder="Escribe para buscar por título o URL">
 </div>
-
+<hr>
 
 <h1>Mis Videos 🎬</h1>
 
