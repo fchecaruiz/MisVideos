@@ -273,3 +273,21 @@ form button:hover {
     outline:2px solid rgb(255, 0, 0);
     
 }
+
+
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #28a745;
+    outline: none;
+}
